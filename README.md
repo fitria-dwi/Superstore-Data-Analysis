@@ -15,8 +15,9 @@
 
 ### **Result**: ###
 <details>
-<summary>1. **How many SAME DAY orders were delayed in delivery?**</summary>
+<summary>1. How many SAME DAY orders were delayed in delivery?</summary>
 <p>
+	
 ```
 SELECT 
 	COUNT(1) AS total_delayed_delivery
