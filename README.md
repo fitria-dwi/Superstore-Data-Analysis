@@ -35,7 +35,10 @@ WHERE
 </p>
 </details>
 
-2. **Display average profit for each discount level !**=
+<details>
+<summary>2. Display average profit for each discount level !</summary>
+<p>
+
 ```
 SELECT
 	CASE 
@@ -55,9 +58,14 @@ ORDER by 1 DESC;
 |LOW |67.03797971278317|
 |MODERATE |19.835564024546144|
 |HIGH |-107.65201132572433|
-</p>
 
-3. **Display the Category and Subcategory with their average profit and discount**
+</p>
+</details>
+
+<details>
+<summary>3. Display the Category and Subcategory with their average profit and discount</summary>
+<p>
+
 ```
 SELECT 
 	p.category,
@@ -93,8 +101,13 @@ ORDER BY 1,2;
 |Technology | Machines | 0.30608695652173913043 | 29.4326686956520713|
 |Technology | Phones | 0.15455568053993250844 | 50.07393768278964770|
 
+</p>
+</details>
 
-4. **Display the performance (total sales, and average profit) of each of the Customer Segments in that states on 2016 only**
+<details>
+<summary>4. Display the performance (total sales, and average profit) of each of the Customer Segments in that states on 2016 only</summary>
+<p>
+
 ```
 SELECT
 	c.segment,
@@ -117,8 +130,13 @@ GROUP BY 1;
 | Corporate | 50951.9110000000016284| 33.57349056603773146 |
 | Home Office | 34897.9529999999997967| 34.66199395973154455 |
 
+</p>
+</details>
 
-5. **How many customers who loves discount (have an average discount above 0.4) for each existing region**
+<details>
+<summary>5. How many customers who loves discount (have an average discount above 0.4) for each existing region</summary>
+<p>
+	
 ```
 WITH o AS 
 (
@@ -149,3 +167,6 @@ ORDER BY 2 DESC;
 | South| 2|
 | East| 2|
 | Central| 2|
+
+</p>
+</details>
