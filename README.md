@@ -2,7 +2,7 @@
 
 ### **Actions**: ###
 <details>
-<summary>1. How many SAME DAY orders were delayed in delivery?</summary>
+<summary ><bold> 1. How many SAME DAY orders were delayed in delivery?</bold> </summary>
 <p>
 	
 ```
