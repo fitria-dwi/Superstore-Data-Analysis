@@ -37,10 +37,12 @@ WHERE
 
 <details>
 <summary>2. Display average profit for each discount level !</summary>
-<p> where the discount level criteria are as follows:
-    - LOW if the discount is below 0.2 (excluding 0.2).
-    - MODERATE if the discount starts from 0.2 to below 0.4 (excluding 0.4).
-    - HIGH if the discount starts from 0.4 and above.
+<p> 
+	
+The condition of the discount level criteria are as follows:
+- LOW if the discount is below 0.2 (excluding 0.2).
+- MODERATE if the discount starts from 0.2 to below 0.4 (excluding 0.4).
+- HIGH if the discount starts from 0.4 and above.
 
 	
 ```
