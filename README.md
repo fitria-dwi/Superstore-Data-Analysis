@@ -2,7 +2,7 @@
 
 ### **Actions**: ###
 <details>
-<summary ><bold> 1. How many SAME DAY orders were delayed in delivery?</bold> </summary>
+<summary > 1. How many SAME DAY orders were delayed in delivery? </summary>
 <p>
 	
 ```
@@ -127,7 +127,7 @@ GROUP BY 1;
 </details>
 
 <details>
-<summary>**5. How many customers who loves discount (have an average discount above 0.4) for each existing region**</summary>
+<summary>5. How many customers who loves discount (have an average discount above 0.4) for each existing region</summary>
 <p>
 	
 ```
