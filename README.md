@@ -1,7 +1,5 @@
 # Superstore-Data-Analysis
 
-**Objective**: Create an analysis report.
-
 **Actions**:
 
 1. How many SAME DAY orders were delayed in delivery?
@@ -16,9 +14,9 @@
 
 
 ### **Result**: ###
-
-1. **How many SAME DAY orders were delayed in delivery?**
-
+<details>
+<summary>1. **How many SAME DAY orders were delayed in delivery?**</summary>
+<p>
 ```
 SELECT 
 	COUNT(1) AS total_delayed_delivery
@@ -32,9 +30,11 @@ WHERE
 | total_delayed_delivery |
 | :---: | 
 | 24  |
+	
+</p>
+</details>
 
-
-2. **Display average profit for each discount level !**
+2. **Display average profit for each discount level !**=
 ```
 SELECT
 	CASE 
@@ -54,7 +54,7 @@ ORDER by 1 DESC;
 |LOW |67.03797971278317|
 |MODERATE |19.835564024546144|
 |HIGH |-107.65201132572433|
-
+</p>
 
 3. **Display the Category and Subcategory with their average profit and discount**
 ```
