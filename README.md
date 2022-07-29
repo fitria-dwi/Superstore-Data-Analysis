@@ -1,19 +1,6 @@
 # Superstore-Data-Analysis
 
-**Actions**:
-
-1. How many SAME DAY orders were delayed in delivery?
-2. Display average profit for each discount level, where the discount level criteria are as follows:
-    - LOW if the discount is below 0.2 (excluding 0.2).
-    - MODERATE if the discount starts from 0.2 to below 0.4 (excluding 0.4).
-    - HIGH if the discount starts from 0.4 and above.
-
-3. Display the Category and Subcategory with their average profit and discount.
-4. Display the performance (total sales, and average profit) of each of the Customer Segments in that states on 2016 only.
-5. How many customers who loves discount (have an average discount above 0.4) for each existing region.
-
-
-### **Result**: ###
+### **Actions**: ###
 <details>
 <summary>1. How many SAME DAY orders were delayed in delivery?</summary>
 <p>
@@ -140,7 +127,7 @@ GROUP BY 1;
 </details>
 
 <details>
-<summary>5. How many customers who loves discount (have an average discount above 0.4) for each existing region</summary>
+<summary>**5. How many customers who loves discount (have an average discount above 0.4) for each existing region**</summary>
 <p>
 	
 ```
@@ -176,3 +163,7 @@ ORDER BY 2 DESC;
 
 </p>
 </details>
+
+- - - -
+	
+### **Additional Questions**: ###
