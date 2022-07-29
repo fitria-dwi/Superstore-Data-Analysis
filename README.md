@@ -19,13 +19,13 @@
 
 1. How many SAME DAY orders were delayed in delivery?
 
-    `SELECT 
+    ```SELECT 
 	    COUNT(1) AS total_delayed_delivery
     FROM 
 	    orders
     WHERE 
 	    ship_mode = 'Same Day' AND
-	    order_date != ship_date;`
+	    order_date != ship_date;```
        
 | total_delayed_delivery |
 | :---: | 
