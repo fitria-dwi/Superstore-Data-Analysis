@@ -109,7 +109,7 @@ ORDER BY 1,2;
 
 	
 <details>
-<summary>4. Display the performance (total sales, and average profit) of each of the Customer Segments in that states on 2016 only</summary>
+<summary>4. Display the performance (total sales, and average profit) of each of the Customer Segments in states of California, Texas and Georgia on 2016 only</summary>
 <p>
 
 ```sql
