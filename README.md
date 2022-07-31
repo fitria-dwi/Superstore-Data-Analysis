@@ -34,7 +34,7 @@ The condition of the discount level criteria are as follows:
 - HIGH if the discount starts from 0.4 and above.
 
 	
-```
+```sql
 SELECT
 	CASE 
 		 WHEN discount < 0.2 THEN 'LOW'
@@ -61,11 +61,12 @@ ORDER by 1 DESC;
 </p>
 </details>
 
+	
 <details>
 <summary>3. Display the Category and Subcategory with their average profit and discount</summary>
 <p>
 
-```
+```sql
 SELECT 
 	p.category,
 	p.subcategory,
@@ -106,11 +107,12 @@ ORDER BY 1,2;
 </p>
 </details>
 
+	
 <details>
 <summary>4. Display the performance (total sales, and average profit) of each of the Customer Segments in that states on 2016 only</summary>
 <p>
 
-```
+```sql
 SELECT
 	c.segment,
 	SUM(o.sales) AS total_sales,
@@ -138,11 +140,12 @@ GROUP BY 1;
 </p>
 </details>
 
+	
 <details>
 <summary>5. How many customers who loves discount (have an average discount above 0.4) for each existing region</summary>
 <p>
 	
-```
+```sql
 WITH o AS 
 (
 	SELECT 
@@ -188,7 +191,7 @@ ORDER BY 2 DESC;
 <summary>1. Display the average time to ship for each ship mode</summary>
 <p>
 	
-```
+```sql
 SELECT 
 	ship_mode,
 	AVG(ABS(DATE_PART('day', ship_date) - DATE_PART('day', order_date))) AS time_to_ship
@@ -215,7 +218,7 @@ GROUP BY 1;
 <summary>2. How are the sales, quantity, and profit performance throughout the years?</summary>
 <p>
 	
-```
+```sql
 SELECT 
 	EXTRACT(YEAR FROM order_date) AS year,
 	count(1) AS total_order,
@@ -244,7 +247,7 @@ ORDER BY 2,3 DESC;
 <summary>3. Display quantity and profit performance for each region throughout the years </summary>
 <p>
 	
-```
+```sql
 SELECT 
 	c.region,
 	EXTRACT(YEAR FROM o.order_date) AS year,
@@ -290,7 +293,7 @@ The region with highest profit is **EAST** region in 2017,  which is $36713.53.
 <summary>4. Which city has the highest profit? </summary>
 <p>
 	
-```
+```sql
 SELECT 
 	c.country,
 	c.city,
@@ -320,7 +323,7 @@ LIMIT 1;
 <summary>5. Which category and subcategory have generated the most profit?</summary>
 <p>
 	
-```
+```sql
 SELECT 
 	c.country,
 	c.city,
