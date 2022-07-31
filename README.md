@@ -187,6 +187,7 @@ ORDER BY 2 DESC;
 <details>
 <summary>1. Display the average time to ship for each ship mode</summary>
 <p>
+	
 ```
 SELECT 
 	ship_mode,
@@ -208,9 +209,12 @@ GROUP BY 1;
 </p>
 </details>
 
+	
+	
 <details>
 <summary>2. How are the sales, quantity, and profit performance throughout the years?</summary>
 <p>
+	
 ```
 SELECT 
 	EXTRACT(YEAR FROM order_date) AS year,
@@ -232,12 +236,14 @@ ORDER BY 2,3 DESC;
 | 2017 | 3312 | 12476 | 733215.26 | 93439.27|
 
 
+	
 </p>
 </details>
 
 <details>
 <summary>3. Display quantity and profit performance for each region throughout the years </summary>
 <p>
+	
 ```
 SELECT 
 	c.region,
@@ -274,12 +280,16 @@ ORDER BY 1,2,3,4;
 
 The region with highest profit is **EAST** region in 2017,  which is $36713.53.
 
+	
 </p>
 </details>
 
+	
+	
 <details>
 <summary>4. Which city has the highest profit? </summary>
 <p>
+	
 ```
 SELECT 
 	c.country,
@@ -305,10 +315,12 @@ LIMIT 1;
 </details>
 
 
+	
 <details>
 <summary>5. Which category and subcategory have generated the most profit?</summary>
 <p>
 ```
+	
 SELECT 
 	c.country,
 	c.city,
