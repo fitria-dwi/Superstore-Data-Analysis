@@ -229,7 +229,7 @@ ORDER BY 2,3 DESC;
 ```
 
 | year | total_order | total_quantity | total_sales | total_profit |
-| :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: |
 | 2014 | 1993 |7581 | 484247.50 | 49543.97|
 | 2015 | 2102 | 7979 | 470532.51 | 61618.60|
 | 2016 | 2587 | 9837 | 609205.60 | 81795.17|
@@ -319,8 +319,8 @@ LIMIT 1;
 <details>
 <summary>5. Which category and subcategory have generated the most profit?</summary>
 <p>
-```
 	
+```
 SELECT 
 	c.country,
 	c.city,
