@@ -1,3 +1,7 @@
+/* Superstore Data Analysis
+Author: Fitria Dwi Wulandari (wulan391@sci.ui.ac.id) - July, 2022.
+This notebook was made using PostgreSQL */
+
 --- Study Case 1
 SELECT 
 	COUNT(1) AS total_delayed_delivery
