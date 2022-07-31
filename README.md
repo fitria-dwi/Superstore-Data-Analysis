@@ -1,6 +1,6 @@
 # Superstore-Data-Analysis
 
-### **Actions**: ###
+### **Questions**: ###
 <details>
 <summary > 1. How many SAME DAY orders were delayed in delivery? </summary>
 <p>
@@ -18,7 +18,9 @@ WHERE
 | total_delayed_delivery |
 | :---: | 
 | 24  |
-	
+
+There are **24** SAME DAY orders which is experiencing delays in delivery
+
 </p>
 </details>
 
@@ -51,6 +53,10 @@ ORDER by 1 DESC;
 |LOW |67.03797971278317|
 |MODERATE |19.835564024546144|
 |HIGH |-107.65201132572433|
+
+- The **higher the discount level**, the **lower the average profit**.
+- Discount level ‘HIGH’ has the lowest average profit.
+- Discount level ‘LOW’ has the highest average profit.
 
 </p>
 </details>
@@ -94,6 +100,9 @@ ORDER BY 1,2;
 |Technology | Machines | 0.30608695652173913043 | 29.4326686956520713|
 |Technology | Phones | 0.15455568053993250844 | 50.07393768278964770|
 
+- The **highest average discount** was achieved by the **BINDERS** subcategory of the **OFFICE SUPPLIES** category.
+- The **TECHNOLOGY** category seems to **dominate the highest average profit** with the **COPIERS**, **ACCESSORIES** and **PHONES** subcategories.
+
 </p>
 </details>
 
@@ -122,6 +131,9 @@ GROUP BY 1;
 | Consumer | 90982.3196000000012181| 30.32965562913906877 |
 | Corporate | 50951.9110000000016284| 33.57349056603773146 |
 | Home Office | 34897.9529999999997967| 34.66199395973154455 |
+
+- The **CONSUMER** segment has the highest total sales, but the lowest average profit from other segments.
+- The **HOME OFFICE** segment has the highest average profit, but the lowest total sales from other segments.
 
 </p>
 </details>
@@ -161,9 +173,165 @@ ORDER BY 2 DESC;
 | East| 2|
 | Central| 2|
 
+- There are 9 customers who loves discount (have an average discount above 0.4).
+- The **WEST** region has the most customers who loves discount (have an average discount above 0.4).
+- The **SOUTH**, **EAST**, and **CENTRA**L regions have the same number of customers who loves discount (with an average discount above 0.4), which is 2 people.
+
 </p>
 </details>
 
 - - - -
 	
 ### **Additional Questions**: ###
+
+<details>
+<summary>1. Display the average time to ship for each ship mode</summary>
+<p>
+```
+SELECT 
+	ship_mode,
+	AVG(ABS(DATE_PART('day', ship_date) - DATE_PART('day', order_date))) AS time_to_ship
+FROM
+	orders
+GROUP BY 1;
+```
+
+| ship_mode | time_to_ship |
+| :---: | :---: |
+| Standard Class | 7.968833780160858|
+| Second Class | 5.410282776349614|
+| Same Day | 0.04419889502762431|
+| First Class | 3.8029908972691806|
+
+**STANDARD CLASS** has the longest average time to ship, which is 8 days.
+
+</p>
+</details>
+
+<details>
+<summary>2. How are the sales, quantity, and profit performance throughout the years?</summary>
+<p>
+```
+SELECT 
+	EXTRACT(YEAR FROM order_date) AS year,
+	count(1) AS total_order,
+	SUM(quantity) AS total_quantity,
+	round(SUM(sales),2) AS total_sales,
+	round(SUM(profit),2) AS total_profit
+FROM 
+	orders
+GROUP BY 1
+ORDER BY 2,3 DESC;
+```
+
+| year | total_order | total_quantity | total_sales | total_profit |
+| :---: | :---: | :---: | :---: |
+| 2014 | 1993 |7581 | 484247.50 | 49543.97|
+| 2015 | 2102 | 7979 | 470532.51 | 61618.60|
+| 2016 | 2587 | 9837 | 609205.60 | 81795.17|
+| 2017 | 3312 | 12476 | 733215.26 | 93439.27|
+
+
+</p>
+</details>
+
+<details>
+<summary>3. Display quantity and profit performance for each region throughout the years </summary>
+<p>
+```
+SELECT 
+	c.region,
+	EXTRACT(YEAR FROM o.order_date) AS year,
+	SUM(o.quantity) AS total_quantity,
+	round(SUM(o.Profit),2) AS total_profit
+FROM 
+	orders o
+LEFT JOIN 
+	customer c
+	ON o.customer_id = c.customer_id
+GROUP BY 1,2
+ORDER BY 1,2,3,4;
+```
+
+| region | year | total_quantity | total_profit|
+| :---: | :---: | :---: | :---: |
+| Central | 2014 | 1681 | 7976.07 |
+| Central | 2015 | 1749 | 12092.39 |
+| Central | 2016 | 2492 | 12508.69 |
+| Central | 2017 | 3043 | 31032.19 |
+| East | 2014 | 2061 | 12538.52 |
+| East | 2015 | 2363 | 19037.89 |
+| East | 2016 | 2846 | 26314.36 |
+| East | 2017 | 3245 | 36713.53|
+| South | 2014 | 1398 | 4338.20|
+| South | 2015 | 1296 | 10460.65|
+| South | 2016 | 1413 | 7487.96|
+| South | 2017 | 2014 | 7888.32|
+| West | 2014 | 2441 | 24691.18|
+| West | 2015 | 2571 | 20027.66|
+| West | 2016 | 3086 | 35484.16|
+| West | 2017 | 4174 | 17805.23|
+
+The region with highest profit is **EAST** region in 2017,  which is $36713.53.
+
+</p>
+</details>
+
+<details>
+<summary>4. Which city has the highest profit? </summary>
+<p>
+```
+SELECT 
+	c.country,
+	c.city,
+	SUM(o.Profit) AS total_profit
+FROM 
+	orders o
+LEFT JOIN 
+	customer c
+	ON o.customer_id = c.customer_id
+GROUP BY 1,2
+ORDER BY 2 DESC
+LIMIT 1;
+```
+
+| country | city | total_profit |
+| :---: | :---: | :---: |
+| United States | Wilmington | 2965.9088999999996109 |
+
+**WILMINGTON** city in the country of United States has the highest total profit.
+
+</p>
+</details>
+
+
+<details>
+<summary>5. Which category and subcategory have generated the most profit?</summary>
+<p>
+```
+SELECT 
+	c.country,
+	c.city,
+	SUM(o.Profit) AS total_profit
+FROM 
+	orders o
+LEFT JOIN 
+	customer c
+	ON o.customer_id = c.customer_id
+GROUP BY 1,2
+ORDER BY 2 DESC
+LIMIT 1;
+```
+
+| category | subcategory | total_profit | 
+| :---: | :---: | :---: |
+| Technology | Copiers | 55617.82489999999452 | 
+| Technology | Phones | 44515.73059999999680214 | 
+| Technology | Accessories | 41936.63569999999717121 |
+| Office Supplies | Paper | 34053.5692999999977475 |
+| Office Supplies | Binders | 30221.7632999999926007 |
+
+The **TECHNOLOGY** category seems to **dominate the highest total profit** with the **COPIERS**, **ACCESSORIES** and **PHONES** subcategories
+
+</p>
+</details>
