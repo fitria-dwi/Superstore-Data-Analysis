@@ -1,7 +1,7 @@
 # Superstore Data Analysis
 
-- Created by Fitria Dwi Wulandari
-- **Tools**: PostgreSQL
+Created by Fitria Dwi Wulandari
+### **Tools**: PostgreSQL
 
 ### **Questions**: ###
 <details>
